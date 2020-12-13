@@ -1,0 +1,21 @@
+body {
+  padding: 0px;
+}
+
+.card {
+  width: 300px;
+}
+
+.card__text {
+  font-size: medium;
+}
+
+.card__person__name {
+  font-size: large;
+  font-weight: bold;
+}
+
+.card__person__site {
+  font-size: medium;
+}
+/*# sourceMappingURL=style.css.map */
