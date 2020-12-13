@@ -1,19 +1,47 @@
+$stndpadding: 20px;
+$radius: 25px;
+$themecolors: (
+  light: white,
+  darker: #c3cfe2,
+  theme: #686de0,
+);
+
+@function color($color-name) {
+  @return map-get($themecolors, $color-name);
+}
+
 body {
-  padding: 0px;
+  background-color: color(darker);
+  padding: $stndpadding;
 }
 
 .card {
+  border-radius: $radius;
+  box-shadow: 0 5px 15px;
+
   width: 300px;
+  background-color: color(light);
 
   &__text {
+    margin: 20px;
+    padding: $stndpadding;
+    background-color: color(light);
     font-size: medium;
   }
   &__person {
+    margin: 0;
+    height: 100px;
+    background-color: color(theme);
+    border-radius: 0 0 $radius $radius;
+    color: color(light);
+    text-align: center;
     &__name {
+      padding: $stndpadding;
       font-size: large;
       font-weight: bold;
     }
     &__site {
+      color: color(darker);
       font-size: medium;
     }
   }
