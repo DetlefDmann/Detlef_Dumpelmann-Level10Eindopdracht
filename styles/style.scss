@@ -1,4 +1,4 @@
-$stndpadding: 20px;
+$stndpadding: 10px;
 $radius: 25px;
 $themecolors: (
   light: white,
@@ -29,7 +29,7 @@ body {
     font-size: medium;
   }
   &__person {
-    margin: 0;
+    margin: 20px;
     height: 100px;
     background-color: color(theme);
     border-radius: 0 0 $radius $radius;
