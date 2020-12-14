@@ -1,5 +1,9 @@
-$stndpadding: 10px;
+$cardwidth: 400px;
+$stndpadding: 20px;
+$stndmargin: 20px;
 $radius: 25px;
+$picdia: 100px;
+$picborder: 5px;
 $themecolors: (
   light: white,
   darker: #c3cfe2,
@@ -11,38 +15,64 @@ $themecolors: (
 }
 
 body {
+  margin: 0;
+  font-family: Tahoma, sans-serif;
   background-color: color(darker);
-  padding: $stndpadding;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
 }
 
 .card {
+  /*position: absolute;*/
+  margin: $stndmargin;
   border-radius: $radius;
   box-shadow: 0 5px 15px;
-
-  width: 300px;
+  width: $cardwidth;
   background-color: color(light);
 
   &__text {
-    margin: 20px;
+    margin: $stndmargin;
+    margin-bottom: $picdia/2;
     padding: $stndpadding;
     background-color: color(light);
     font-size: medium;
   }
+  &__image {
+    position: relative;
+    top: -($picdia/2 + $picborder);
+    left: ($cardwidth/2) - ($picdia/2 + $picborder);
+    height: $picdia + 2 * $picborder;
+    width: $picdia + 2 * $picborder;
+    background-color: color(light);
+    border-radius: 50%;
+  }
+  img {
+    position: relative;
+    top: $picborder;
+    width: $picdia;
+    border-radius: 50%;
+  }
   &__person {
-    margin: 20px;
-    height: 100px;
+    margin: 0;
+    height: 150px;
+    position: relative;
     background-color: color(theme);
     border-radius: 0 0 $radius $radius;
     color: color(light);
     text-align: center;
-    &__name {
-      padding: $stndpadding;
-      font-size: large;
-      font-weight: bold;
-    }
-    &__site {
-      color: color(darker);
-      font-size: medium;
-    }
+  }
+  &__name {
+    position: relative;
+    top: -$picdia/2;
+    font-size: large;
+    font-weight: bold;
+  }
+  &__site {
+    position: relative;
+    top: -$picdia/2;
+    padding: $stndpadding;
+    color: color(darker);
+    font-size: medium;
   }
 }
