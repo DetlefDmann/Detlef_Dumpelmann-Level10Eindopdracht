@@ -10,9 +10,20 @@ $themecolors: (
   darker: #c3cfe2,
   theme: #686de0,
 );
+$media: (
+  blog: #e17b77,
+  facebook: #3b5998,
+  twitter: #00aced,
+  github: #333,
+  linkedin: #007bb6,
+);
 
 @function color($color-name) {
   @return map-get($themecolors, $color-name);
+}
+
+@function social($color) {
+  @return map-get($media, $color);
 }
 
 body {
