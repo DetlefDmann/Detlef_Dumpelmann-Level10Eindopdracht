@@ -12,26 +12,28 @@ body {
 
 .card {
   /*position: absolute;*/
-  margin: 20px;
+  margin: 30px;
   border-radius: 25px;
   -webkit-box-shadow: 0 5px 15px;
           box-shadow: 0 5px 15px;
-  width: 400px;
+  width: 360px;
   background-color: white;
 }
 
 .card__text {
-  margin: 20px;
+  margin: 30px;
   margin-bottom: 50px;
-  padding: 20px;
+  line-height: 2rem;
+  padding: 30px 0 10px;
   background-color: white;
   font-size: medium;
+  font-weight: 500;
 }
 
 .card__image {
   position: relative;
   top: -55px;
-  left: 145px;
+  left: 125px;
   height: 110px;
   width: 110px;
   background-color: white;
@@ -57,15 +59,16 @@ body {
 
 .card__name {
   position: relative;
-  top: -50px;
+  top: -55px;
+  padding-top: 10px;
+  text-transform: uppercase;
   font-size: large;
-  font-weight: bold;
 }
 
 .card__site {
   position: relative;
-  top: -50px;
-  padding: 20px;
+  top: -55px;
+  padding: 10px;
   color: #c3cfe2;
   font-size: medium;
 }

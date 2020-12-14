@@ -1,9 +1,9 @@
-$cardwidth: 400px;
-$stndpadding: 20px;
-$stndmargin: 20px;
+$stndpadding: 10px;
+$stndmargin: 30px;
 $radius: 25px;
 $picdia: 100px;
 $picborder: 5px;
+$cardwidth: 3 * $picdia + 2 * $stndmargin;
 $themecolors: (
   light: white,
   darker: #c3cfe2,
@@ -34,9 +34,11 @@ body {
   &__text {
     margin: $stndmargin;
     margin-bottom: $picdia/2;
-    padding: $stndpadding;
+    line-height: 2rem;
+    padding: 3 * $stndpadding 0 $stndpadding;
     background-color: color(light);
     font-size: medium;
+    font-weight: 500;
   }
   &__image {
     position: relative;
@@ -64,13 +66,14 @@ body {
   }
   &__name {
     position: relative;
-    top: -$picdia/2;
+    top: -($picdia/2 + $picborder);
+    padding-top: $stndpadding;
+    text-transform: uppercase;
     font-size: large;
-    font-weight: bold;
   }
   &__site {
     position: relative;
-    top: -$picdia/2;
+    top: -($picdia/2 + $picborder);
     padding: $stndpadding;
     color: color(darker);
     font-size: medium;
