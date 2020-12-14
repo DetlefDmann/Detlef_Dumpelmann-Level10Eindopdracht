@@ -6,22 +6,81 @@ body {
   display: grid;
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
-  -ms-grid-rows: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
+  -ms-grid-rows: 100px (480px)[7];
+      grid-template-rows: 100px repeat(7, 480px);
+      grid-template-areas: "header" "card1" "card2" "card3" "card4" "card5" "card6" "card7";
+}
+
+header h1 {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: header;
+}
+
+section[name="card1"] {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: card1;
+}
+
+section[name="card2"] {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: card2;
+}
+
+section[name="card3"] {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  grid-area: card3;
+}
+
+section[name="card4"] {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  grid-area: card4;
+}
+
+section[name="card5"] {
+  -ms-grid-row: 6;
+  -ms-grid-column: 1;
+  grid-area: card5;
+}
+
+section[name="card6"] {
+  -ms-grid-row: 7;
+  -ms-grid-column: 1;
+  grid-area: card6;
+}
+
+section[name="card7"] {
+  -ms-grid-row: 8;
+  -ms-grid-column: 1;
+  grid-area: card7;
+}
+
+article {
+  grid-area: "main";
+  /* display: flex;
+  flex-wrap: wrap;*/
 }
 
 .card {
   /*position: absolute;*/
-  margin: 30px;
+  margin: auto;
   border-radius: 25px;
   -webkit-box-shadow: 0 10px 15px grey;
           box-shadow: 0 10px 15px grey;
-  width: 360px;
+  width: 340px;
   background-color: white;
 }
 
 .card__text {
-  margin: 30px;
+  margin: 20px;
   margin-bottom: 50px;
   line-height: 2rem;
   padding: 30px 0 10px;
@@ -33,7 +92,7 @@ body {
 .card__image {
   position: relative;
   top: -55px;
-  left: 125px;
+  left: 115px;
   height: 110px;
   width: 110px;
   background-color: white;
@@ -71,5 +130,37 @@ body {
   padding: 10px;
   color: #c3cfe2;
   font-size: medium;
+}
+
+section.card:hover::before {
+  content: "";
+  position: absolute;
+  top: 100;
+  right: 50;
+  width: 340px;
+  height: 447.5px;
+  border-radius: 25px;
+  z-index: 1;
+  background: black;
+}
+
+@media (min-width: 768px) {
+  body {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 100px (480px)[4];
+        grid-template-rows: 100px repeat(4, 480px);
+        grid-template-areas: "header header" "card1 card2" "card3 card4" "card5 card6" "card7 main";
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    -ms-grid-rows: 100px (480px)[3];
+        grid-template-rows: 100px repeat(3, 480px);
+        grid-template-areas: "header header header" "card1 card2 card3" "card4 card5 card6" "card7 . .";
+  }
 }
 /*# sourceMappingURL=style.css.map */
