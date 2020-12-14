@@ -76,6 +76,7 @@ article {
   -webkit-box-shadow: 0 10px 15px grey;
           box-shadow: 0 10px 15px grey;
   width: 340px;
+  height: 450px;
   background-color: white;
 }
 
@@ -83,6 +84,7 @@ article {
   margin: 20px;
   margin-bottom: 50px;
   line-height: 2rem;
+  height: 190px;
   padding: 30px 0 10px;
   background-color: white;
   font-size: medium;
@@ -138,10 +140,24 @@ section.card:hover::before {
   top: 100;
   right: 50;
   width: 340px;
-  height: 447.5px;
+  height: 450px;
   border-radius: 25px;
   z-index: 1;
   background: black;
+}
+
+section.card .card__button {
+  position: relative;
+  top: 0px;
+  left: 110px;
+  z-index: -1;
+}
+
+section.card:hover .card__button {
+  position: relative;
+  top: 0px;
+  left: 110px;
+  z-index: 2;
 }
 
 @media (min-width: 768px) {

@@ -4,6 +4,7 @@ $radius: 25px;
 $picdia: 100px;
 $picborder: 5px;
 $cardwidth: 3 * $picdia + 2 * $stndmargin;
+$cardheight: 450px;
 $themecolors: (
   light: white,
   darker: #c3cfe2,
@@ -72,12 +73,14 @@ article {
   border-radius: $radius;
   box-shadow: 0 10px 15px grey;
   width: $cardwidth;
+  height: $cardheight;
   background-color: color(light);
 
   &__text {
     margin: $stndmargin;
     margin-bottom: $picdia/2;
     line-height: 2rem;
+    height: 300px -$picdia -$stndpadding;
     padding: 3 * $stndpadding 0 $stndpadding;
     background-color: color(light);
     font-size: medium;
@@ -129,10 +132,24 @@ section.card:hover::before {
   top: 100;
   right: 50;
   width: $cardwidth;
-  height: 447.5px;
+  height: $cardheight;
   border-radius: $radius;
   z-index: 1;
   background: black;
+}
+
+section.card .card__button {
+  position: relative;
+  top: 0px;
+  left: 110px;
+  z-index: -1;
+}
+
+section.card:hover .card__button {
+  position: relative;
+  top: 0px;
+  left: 110px;
+  z-index: 2;
 }
 
 @media (min-width: 768px) {
