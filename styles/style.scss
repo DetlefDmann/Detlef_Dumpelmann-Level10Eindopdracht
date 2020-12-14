@@ -125,6 +125,20 @@ article {
     font-size: medium;
   }
 }
+section.card::before {
+  content: "";
+  position: absolute;
+  top: 100;
+  right: 50;
+  width: $cardwidth;
+  height: $cardheight;
+  border-radius: $radius;
+  z-index: 1;
+  background: black;
+  transform: scale(0, 0);
+
+  transition: transform 100ms ease-out;
+}
 
 section.card:hover::before {
   content: "";
@@ -136,6 +150,7 @@ section.card:hover::before {
   border-radius: $radius;
   z-index: 1;
   background: black;
+  transform: scale(1, 1);
 }
 
 section.card .card__button {
