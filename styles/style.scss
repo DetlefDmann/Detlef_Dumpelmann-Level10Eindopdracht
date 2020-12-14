@@ -140,14 +140,15 @@ section.card:hover::before {
 
 section.card .card__button {
   position: relative;
-  top: 0px;
+  top: -30px;
   left: 110px;
+  padding: $stndpadding;
   z-index: -1;
 }
 
 section.card:hover .card__button {
   position: relative;
-  top: 0px;
+  top: -30px;
   left: 110px;
   z-index: 2;
 }
