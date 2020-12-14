@@ -14,8 +14,8 @@ body {
   /*position: absolute;*/
   margin: 30px;
   border-radius: 25px;
-  -webkit-box-shadow: 0 5px 15px;
-          box-shadow: 0 5px 15px;
+  -webkit-box-shadow: 0 10px 15px grey;
+          box-shadow: 0 10px 15px grey;
   width: 360px;
   background-color: white;
 }
