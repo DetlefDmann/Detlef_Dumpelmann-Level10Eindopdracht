@@ -63,12 +63,6 @@ section[name="card7"] {
   grid-area: card7;
 }
 
-article {
-  grid-area: "main";
-  /* display: flex;
-  flex-wrap: wrap;*/
-}
-
 .card {
   /*position: absolute;*/
   margin: auto;
@@ -181,13 +175,146 @@ section.card:hover .card__button {
   z-index: 2;
 }
 
+.card__button:hover {
+  cursor: pointer;
+}
+
+.fa-laptop-code {
+  width: 15rem;
+  height: 2rem;
+  font-family: Tahoma, sans-serif;
+  padding: 1rem 0 0 1rem;
+  background-color: #e17b77;
+  color: white;
+}
+
+.fa-twitter {
+  width: 15rem;
+  height: 2rem;
+  font-family: Tahoma, sans-serif;
+  padding: 1rem 0 0 1rem;
+  background-color: #00aced;
+  color: white;
+}
+
+.fa-linkedin-in {
+  width: 15rem;
+  height: 2rem;
+  font-family: Tahoma, sans-serif;
+  padding: 1rem 0 0 1rem;
+  background-color: #007bb6;
+  color: white;
+}
+
+.fa-facebook-f {
+  width: 15rem;
+  height: 2rem;
+  font-family: Tahoma, sans-serif;
+  padding: 1rem 0 0 1rem;
+  background-color: #3b5998;
+  color: white;
+}
+
+.fa-github {
+  width: 15rem;
+  height: 2rem;
+  font-family: Tahoma, sans-serif;
+  padding: 1rem 0 0 1rem;
+  background-color: #333;
+  color: white;
+}
+
+.fa-laptop-code::before {
+  position: relative;
+  width: 3rem;
+  height: 2rem;
+  padding-right: 1.8rem;
+  font-style: normal;
+  font-variant: normal;
+  font-family: "Font Awesome 5 Free";
+  content: "\f5fc";
+  background-color: #e17b77;
+  color: white;
+}
+
+.fa-twitter::before {
+  position: relative;
+  width: 3rem;
+  height: 2rem;
+  padding-right: 1.8rem;
+  font-style: normal;
+  font-variant: normal;
+  font-family: "Font Awesome 5 Brands";
+  content: "\f099";
+  background-color: #00aced;
+  color: white;
+}
+
+.fa-linkedin-in::before {
+  position: relative;
+  width: 3rem;
+  height: 2rem;
+  padding-right: 1.8rem;
+  font-style: normal;
+  font-variant: normal;
+  font-family: "Font Awesome 5 Brands";
+  content: "\f0e1";
+  background-color: #007bb6;
+  color: white;
+}
+
+.fa-facebook-f::before {
+  position: relative;
+  width: 3rem;
+  height: 2rem;
+  padding-right: 1.8rem;
+  font-style: normal;
+  font-variant: normal;
+  font-family: "Font Awesome 5 Brands";
+  content: "\f39e";
+  background-color: #3b5998;
+  color: white;
+}
+
+.fa-github::before {
+  position: relative;
+  width: 3rem;
+  height: 2rem;
+  padding-right: 1.8rem;
+  font-style: normal;
+  font-variant: normal;
+  font-family: "Font Awesome 5 Brands";
+  content: "\f09b";
+  background-color: #333;
+  color: white;
+}
+
+.socials {
+  position: absolute;
+  right: -12.8rem;
+  top: 20rem;
+}
+
+.socials li {
+  display: block;
+  -webkit-transition: -webkit-transform 200ms ease 100ms;
+  transition: -webkit-transform 200ms ease 100ms;
+  transition: transform 200ms ease 100ms;
+  transition: transform 200ms ease 100ms, -webkit-transform 200ms ease 100ms;
+}
+
+.socials li:hover {
+  -webkit-transform: translateX(-11rem);
+          transform: translateX(-11rem);
+}
+
 @media (min-width: 768px) {
   body {
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
     -ms-grid-rows: 100px (480px)[4];
         grid-template-rows: 100px repeat(4, 480px);
-        grid-template-areas: "header header" "card1 card2" "card3 card4" "card5 card6" "card7 main";
+        grid-template-areas: "header header" "card1 card2" "card3 card4" "card5 card6" "card7 .";
   }
 }
 

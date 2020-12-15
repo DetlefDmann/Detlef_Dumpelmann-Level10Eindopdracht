@@ -5,6 +5,22 @@ $picdia: 100px;
 $picborder: 5px;
 $cardwidth: 3 * $picdia + 2 * $stndmargin;
 $cardheight: 450px;
+$socialwidth: 15rem;
+$socialheight: 2rem;
+@mixin social-style {
+  width: $socialwidth;
+  height: $socialheight;
+  font-family: Tahoma, sans-serif;
+  padding: 1rem 0 0 1rem;
+}
+@mixin before-style {
+  position: relative;
+  width: 3rem;
+  height: $socialheight;
+  padding-right: 1.8rem;
+  font-style: normal;
+  font-variant: normal;
+}
 $themecolors: (
   light: white,
   darker: #c3cfe2,
@@ -70,12 +86,6 @@ section[name="card6"] {
 }
 section[name="card7"] {
   grid-area: card7;
-}
-
-article {
-  grid-area: "main";
-  /* display: flex;
-  flex-wrap: wrap;*/
 }
 
 .card {
@@ -179,6 +189,87 @@ section.card:hover .card__button {
   z-index: 2;
 }
 
+.card__button:hover {
+  cursor: pointer;
+}
+
+.fa-laptop-code {
+  @include social-style;
+  background-color: social(blog);
+  color: white;
+}
+.fa-twitter {
+  @include social-style;
+  background-color: social(twitter);
+  color: white;
+}
+.fa-linkedin-in {
+  @include social-style;
+  background-color: social(linkedin);
+  color: white;
+}
+.fa-facebook-f {
+  @include social-style;
+  background-color: social(facebook);
+  color: white;
+}
+.fa-github {
+  @include social-style;
+  background-color: social(github);
+  color: white;
+}
+
+.fa-laptop-code::before {
+  @include before-style;
+  font-family: "Font Awesome 5 Free";
+  content: "\f5fc";
+  background-color: social(blog);
+  color: white;
+}
+.fa-twitter::before {
+  @include before-style;
+  font-family: "Font Awesome 5 Brands";
+  content: "\f099";
+  background-color: social(twitter);
+  color: white;
+}
+.fa-linkedin-in::before {
+  @include before-style;
+  font-family: "Font Awesome 5 Brands";
+  content: "\f0e1";
+  background-color: social(linkedin);
+  color: white;
+}
+.fa-facebook-f::before {
+  @include before-style;
+  font-family: "Font Awesome 5 Brands";
+  content: "\f39e";
+  background-color: social(facebook);
+  color: white;
+}
+.fa-github::before {
+  @include before-style;
+  font-family: "Font Awesome 5 Brands";
+  content: "\f09b";
+  background-color: social(github);
+  color: white;
+}
+
+.socials {
+  position: absolute;
+  right: -12.8rem;
+  top: 20rem;
+}
+
+.socials li {
+  display: block;
+  transition: transform 200ms ease 100ms;
+}
+
+.socials li:hover {
+  transform: translateX(-11rem);
+}
+
 @media (min-width: 768px) {
   body {
     grid-template-columns: 1fr 1fr;
@@ -188,7 +279,7 @@ section.card:hover .card__button {
       "card1 card2"
       "card3 card4"
       "card5 card6"
-      "card7 main";
+      "card7 .";
   }
 }
 
