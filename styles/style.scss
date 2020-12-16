@@ -3,7 +3,8 @@
 body {
   margin: 0;
   font-family: Tahoma, sans-serif;
-  background-color: color(darker);
+  background-color: functions.color(darker);
+  overflow-x: hidden;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 100px repeat(7, 480px);
@@ -18,10 +19,19 @@ body {
     "card7";
 }
 
-header h1 {
-  align-items: center;
-  text-align: center;
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+header {
   grid-area: header;
+  background-color: functions.color(theme);
+  color: functions.color(light);
+  box-shadow: 0 10px 15px grey;
+  h1 {
+    align-items: center;
+    text-align: center;
+  }
 }
 
 section[name="card1"] {
@@ -223,7 +233,7 @@ section.card:hover .card__button {
     display: block;
     transition: transform 200ms ease 100ms;
     &:hover {
-      transform: translateX(-11rem);
+      transform: translateX(-12rem);
     }
     a {
       color: white;
