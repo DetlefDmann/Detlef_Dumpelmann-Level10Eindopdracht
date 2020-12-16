@@ -1,0 +1,7 @@
+@function color($color-name) {
+  @return map-get($themecolors, $color-name);
+}
+
+@function social($color) {
+  @return map-get($media, $color);
+}

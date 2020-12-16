@@ -1,47 +1,5 @@
-$stndpadding: 10px;
-$stndmargin: 20px;
-$radius: 25px;
-$picdia: 100px;
-$picborder: 5px;
-$cardwidth: 3 * $picdia + 2 * $stndmargin;
-$cardheight: 450px;
-$socialwidth: 15rem;
-$socialheight: 2rem;
-@mixin social-style {
-  width: $socialwidth;
-  height: $socialheight;
-  font-family: Tahoma, sans-serif;
-  padding: 1rem 0 0 1rem;
-}
-@mixin before-style {
-  position: relative;
-  width: 3rem;
-  height: $socialheight;
-  padding-right: 1.8rem;
-  font-style: normal;
-  font-variant: normal;
-}
-$themecolors: (
-  light: white,
-  darker: #c3cfe2,
-  theme: #686de0,
-);
-$media: (
-  blog: #e17b77,
-  facebook: #3b5998,
-  twitter: #00aced,
-  github: #333,
-  linkedin: #007bb6,
-);
-
-@function color($color-name) {
-  @return map-get($themecolors, $color-name);
-}
-
-@function social($color) {
-  @return map-get($media, $color);
-}
-
+@use 'constants';
+@use 'functions';
 body {
   margin: 0;
   font-family: Tahoma, sans-serif;
@@ -259,15 +217,18 @@ section.card:hover .card__button {
   position: absolute;
   right: -12.8rem;
   top: 20rem;
-}
-
-.socials li {
-  display: block;
-  transition: transform 200ms ease 100ms;
-}
-
-.socials li:hover {
-  transform: translateX(-11rem);
+  li {
+    display: block;
+    transition: transform 200ms ease 100ms;
+    &:hover {
+      transform: translateX(-11rem);
+    }
+    a {
+      color: white;
+      font-family: Tahoma, sans-serif;
+      font-weight: lighter;
+    }
+  }
 }
 
 @media (min-width: 768px) {

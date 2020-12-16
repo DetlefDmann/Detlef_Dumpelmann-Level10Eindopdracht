@@ -1,0 +1,35 @@
+$stndpadding: 10px;
+$stndmargin: 20px;
+$radius: 25px;
+$picdia: 100px;
+$picborder: 5px;
+$cardwidth: 3 * $picdia + 2 * $stndmargin;
+$cardheight: 450px;
+$socialwidth: 15rem;
+$socialheight: 2rem;
+@mixin social-style {
+  width: $socialwidth;
+  height: $socialheight;
+  font-family: Tahoma, sans-serif;
+  padding: 1rem 0 0 1rem;
+}
+@mixin before-style {
+  position: relative;
+  width: 3rem;
+  height: $socialheight;
+  padding-right: 1.8rem;
+  font-style: normal;
+  font-variant: normal;
+}
+$themecolors: (
+  light: white,
+  darker: #c3cfe2,
+  theme: #686de0,
+);
+$media: (
+  blog: #e17b77,
+  facebook: #3b5998,
+  twitter: #00aced,
+  github: #333,
+  linkedin: #007bb6,
+);

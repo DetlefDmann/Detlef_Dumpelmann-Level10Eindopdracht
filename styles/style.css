@@ -308,6 +308,12 @@ section.card:hover .card__button {
           transform: translateX(-11rem);
 }
 
+.socials li a {
+  color: white;
+  font-family: Tahoma, sans-serif;
+  font-weight: lighter;
+}
+
 @media (min-width: 768px) {
   body {
     -ms-grid-columns: 1fr 1fr;
