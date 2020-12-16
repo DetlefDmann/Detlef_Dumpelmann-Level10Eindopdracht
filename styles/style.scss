@@ -1,5 +1,5 @@
-@import "./constants";
-@import "./functions";
+@use "./constants";
+@use "./functions";
 body {
   margin: 0;
   font-family: Tahoma, sans-serif;
@@ -49,58 +49,59 @@ section[name="card7"] {
 .card {
   /*position: absolute;*/
   margin: auto;
-  border-radius: $radius;
+  border-radius: constants.$radius;
   box-shadow: 0 10px 15px grey;
-  width: $cardwidth;
-  height: $cardheight;
-  background-color: color(light);
+  width: constants.$cardwidth;
+  height: constants.$cardheight;
+  background-color: functions.color(light);
 
   &__text {
-    margin: $stndmargin;
-    margin-bottom: $picdia/2;
+    margin: constants.$stndmargin;
+    margin-bottom: constants.$picdia/2;
     line-height: 2rem;
-    height: 300px -$picdia -$stndpadding;
-    padding: 3 * $stndpadding 0 $stndpadding;
-    background-color: color(light);
+    height: 300px - constants.$picdia - constants.$stndpadding;
+    padding: 3 * constants.$stndpadding 0 constants.$stndpadding;
+    background-color: functions.color(light);
     font-size: medium;
     font-weight: 500;
   }
   &__image {
     position: relative;
-    top: -($picdia/2 + $picborder);
-    left: ($cardwidth/2) - ($picdia/2 + $picborder);
-    height: $picdia + 2 * $picborder;
-    width: $picdia + 2 * $picborder;
-    background-color: color(light);
+    top: -(constants.$picdia/2 + constants.$picborder);
+    left: (constants.$cardwidth/2) -
+      (constants.$picdia/2 + constants.$picborder);
+    height: constants.$picdia + 2 * constants.$picborder;
+    width: constants.$picdia + 2 * constants.$picborder;
+    background-color: functions.color(light);
     border-radius: 50%;
   }
   img {
     position: relative;
-    top: $picborder;
-    width: $picdia;
+    top: constants.$picborder;
+    width: constants.$picdia;
     border-radius: 50%;
   }
   &__person {
     margin: 0;
     height: 150px;
     position: relative;
-    background-color: color(theme);
-    border-radius: 0 0 $radius $radius;
-    color: color(light);
+    background-color: functions.color(theme);
+    border-radius: 0 0 constants.$radius constants.$radius;
+    color: functions.color(light);
     text-align: center;
   }
   &__name {
     position: relative;
-    top: -($picdia/2 + $picborder);
-    padding-top: $stndpadding;
+    top: -(constants.$picdia/2 + constants.$picborder);
+    padding-top: constants.$stndpadding;
     text-transform: uppercase;
     font-size: large;
   }
   &__site {
     position: relative;
-    top: -($picdia/2 + $picborder);
-    padding: $stndpadding;
-    color: color(darker);
+    top: -(constants.$picdia/2 + constants.$picborder);
+    padding: constants.$stndpadding;
+    color: functions.color(darker);
     font-size: medium;
   }
 }
@@ -109,9 +110,9 @@ section.card::before {
   position: absolute;
   top: 100;
   right: 50;
-  width: $cardwidth;
-  height: $cardheight;
-  border-radius: $radius;
+  width: constants.$cardwidth;
+  height: constants.$cardheight;
+  border-radius: constants.$radius;
   z-index: 1;
   background: black;
   transform: scale(0, 0);
@@ -124,9 +125,9 @@ section.card:hover::before {
   position: absolute;
   top: 100;
   right: 50;
-  width: $cardwidth;
-  height: $cardheight;
-  border-radius: $radius;
+  width: constants.$cardwidth;
+  height: constants.$cardheight;
+  border-radius: constants.$radius;
   z-index: 1;
   background: black;
   transform: scale(1, 1);
@@ -136,7 +137,7 @@ section.card .card__button {
   position: relative;
   top: -30px;
   left: 110px;
-  padding: $stndpadding;
+  padding: constants.$stndpadding;
   z-index: -1;
 }
 
@@ -152,64 +153,64 @@ section.card:hover .card__button {
 }
 
 .fa-laptop-code {
-  @include social-style;
-  background-color: social(blog);
+  @include constants.social-style;
+  background-color: functions.social(blog);
   color: white;
 }
 .fa-twitter {
-  @include social-style;
-  background-color: social(twitter);
+  @include constants.social-style;
+  background-color: functions.social(twitter);
   color: white;
 }
 .fa-linkedin-in {
-  @include social-style;
-  background-color: social(linkedin);
+  @include constants.social-style;
+  background-color: functions.social(linkedin);
   color: white;
 }
 .fa-facebook-f {
-  @include social-style;
-  background-color: social(facebook);
+  @include constants.social-style;
+  background-color: functions.social(facebook);
   color: white;
 }
 .fa-github {
-  @include social-style;
-  background-color: social(github);
+  @include constants.social-style;
+  background-color: functions.social(github);
   color: white;
 }
 
 .fa-laptop-code::before {
-  @include before-style;
+  @include constants.before-style;
   font-family: "Font Awesome 5 Free";
   content: "\f5fc";
-  background-color: social(blog);
+  background-color: functions.social(blog);
   color: white;
 }
 .fa-twitter::before {
-  @include before-style;
+  @include constants.before-style;
   font-family: "Font Awesome 5 Brands";
   content: "\f099";
-  background-color: social(twitter);
+  background-color: functions.social(twitter);
   color: white;
 }
 .fa-linkedin-in::before {
-  @include before-style;
+  @include constants.before-style;
   font-family: "Font Awesome 5 Brands";
   content: "\f0e1";
-  background-color: social(linkedin);
+  background-color: functions.social(linkedin);
   color: white;
 }
 .fa-facebook-f::before {
-  @include before-style;
+  @include constants.before-style;
   font-family: "Font Awesome 5 Brands";
   content: "\f39e";
-  background-color: social(facebook);
+  background-color: functions.social(facebook);
   color: white;
 }
 .fa-github::before {
-  @include before-style;
+  @include constants.before-style;
   font-family: "Font Awesome 5 Brands";
   content: "\f09b";
-  background-color: social(github);
+  background-color: functions.social(github);
   color: white;
 }
 

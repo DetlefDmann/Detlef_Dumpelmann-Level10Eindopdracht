@@ -1,7 +1,8 @@
+@use './constants';
 @function color($color-name) {
-  @return map-get($themecolors, $color-name);
+  @return map-get(constants.$themecolors, $color-name);
 }
 
 @function social($color) {
-  @return map-get($media, $color);
+  @return map-get(constants.$media, $color);
 }
