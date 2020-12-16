@@ -1,5 +1,5 @@
-@use 'constants';
-@use 'functions';
+@import "./constants";
+@import "./functions";
 body {
   margin: 0;
   font-family: Tahoma, sans-serif;
@@ -217,6 +217,7 @@ section.card:hover .card__button {
   position: absolute;
   right: -12.8rem;
   top: 20rem;
+  z-index: 2;
   li {
     display: block;
     transition: transform 200ms ease 100ms;

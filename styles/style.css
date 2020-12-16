@@ -1,14 +1,12 @@
+@charset "UTF-8";
 body {
   margin: 0;
   font-family: Tahoma, sans-serif;
   background-color: #c3cfe2;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
-  -ms-grid-rows: 100px (480px)[7];
-      grid-template-rows: 100px repeat(7, 480px);
-      grid-template-areas: "header" "card1" "card2" "card3" "card4" "card5" "card6" "card7";
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px repeat(7, 480px);
+  grid-template-areas: "header" "card1" "card2" "card3" "card4" "card5" "card6" "card7";
 }
 
 header h1 {
@@ -16,50 +14,34 @@ header h1 {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
   grid-area: header;
 }
 
-section[name="card1"] {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
+section[name=card1] {
   grid-area: card1;
 }
 
-section[name="card2"] {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
+section[name=card2] {
   grid-area: card2;
 }
 
-section[name="card3"] {
-  -ms-grid-row: 4;
-  -ms-grid-column: 1;
+section[name=card3] {
   grid-area: card3;
 }
 
-section[name="card4"] {
-  -ms-grid-row: 5;
-  -ms-grid-column: 1;
+section[name=card4] {
   grid-area: card4;
 }
 
-section[name="card5"] {
-  -ms-grid-row: 6;
-  -ms-grid-column: 1;
+section[name=card5] {
   grid-area: card5;
 }
 
-section[name="card6"] {
-  -ms-grid-row: 7;
-  -ms-grid-column: 1;
+section[name=card6] {
   grid-area: card6;
 }
 
-section[name="card7"] {
-  -ms-grid-row: 8;
-  -ms-grid-column: 1;
+section[name=card7] {
   grid-area: card7;
 }
 
@@ -73,7 +55,6 @@ section[name="card7"] {
   height: 450px;
   background-color: white;
 }
-
 .card__text {
   margin: 20px;
   margin-bottom: 50px;
@@ -84,7 +65,6 @@ section[name="card7"] {
   font-size: medium;
   font-weight: 500;
 }
-
 .card__image {
   position: relative;
   top: -55px;
@@ -94,14 +74,12 @@ section[name="card7"] {
   background-color: white;
   border-radius: 50%;
 }
-
 .card img {
   position: relative;
   top: 5px;
   width: 100px;
   border-radius: 50%;
 }
-
 .card__person {
   margin: 0;
   height: 150px;
@@ -111,7 +89,6 @@ section[name="card7"] {
   color: white;
   text-align: center;
 }
-
 .card__name {
   position: relative;
   top: -55px;
@@ -119,7 +96,6 @@ section[name="card7"] {
   text-transform: uppercase;
   font-size: large;
 }
-
 .card__site {
   position: relative;
   top: -55px;
@@ -232,7 +208,7 @@ section.card:hover .card__button {
   font-style: normal;
   font-variant: normal;
   font-family: "Font Awesome 5 Free";
-  content: "\f5fc";
+  content: "";
   background-color: #e17b77;
   color: white;
 }
@@ -245,7 +221,7 @@ section.card:hover .card__button {
   font-style: normal;
   font-variant: normal;
   font-family: "Font Awesome 5 Brands";
-  content: "\f099";
+  content: "";
   background-color: #00aced;
   color: white;
 }
@@ -258,7 +234,7 @@ section.card:hover .card__button {
   font-style: normal;
   font-variant: normal;
   font-family: "Font Awesome 5 Brands";
-  content: "\f0e1";
+  content: "";
   background-color: #007bb6;
   color: white;
 }
@@ -271,7 +247,7 @@ section.card:hover .card__button {
   font-style: normal;
   font-variant: normal;
   font-family: "Font Awesome 5 Brands";
-  content: "\f39e";
+  content: "";
   background-color: #3b5998;
   color: white;
 }
@@ -284,7 +260,7 @@ section.card:hover .card__button {
   font-style: normal;
   font-variant: normal;
   font-family: "Font Awesome 5 Brands";
-  content: "\f09b";
+  content: "";
   background-color: #333;
   color: white;
 }
@@ -293,8 +269,8 @@ section.card:hover .card__button {
   position: absolute;
   right: -12.8rem;
   top: 20rem;
+  z-index: 2;
 }
-
 .socials li {
   display: block;
   -webkit-transition: -webkit-transform 200ms ease 100ms;
@@ -302,12 +278,10 @@ section.card:hover .card__button {
   transition: transform 200ms ease 100ms;
   transition: transform 200ms ease 100ms, -webkit-transform 200ms ease 100ms;
 }
-
 .socials li:hover {
   -webkit-transform: translateX(-11rem);
           transform: translateX(-11rem);
 }
-
 .socials li a {
   color: white;
   font-family: Tahoma, sans-serif;
@@ -316,21 +290,16 @@ section.card:hover .card__button {
 
 @media (min-width: 768px) {
   body {
-    -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
-    -ms-grid-rows: 100px (480px)[4];
-        grid-template-rows: 100px repeat(4, 480px);
-        grid-template-areas: "header header" "card1 card2" "card3 card4" "card5 card6" "card7 .";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px repeat(4, 480px);
+    grid-template-areas: "header header" "card1 card2" "card3 card4" "card5 card6" "card7 .";
   }
 }
-
 @media (min-width: 1024px) {
   body {
-    -ms-grid-columns: 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr;
-    -ms-grid-rows: 100px (480px)[3];
-        grid-template-rows: 100px repeat(3, 480px);
-        grid-template-areas: "header header header" "card1 card2 card3" "card4 card5 card6" "card7 . .";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px repeat(3, 480px);
+    grid-template-areas: "header header header" "card1 card2 card3" "card4 card5 card6" "card7 . .";
   }
 }
 /*# sourceMappingURL=style.css.map */
