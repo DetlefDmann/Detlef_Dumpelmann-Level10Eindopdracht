@@ -1,5 +1,15 @@
 @use "./constants";
 @use "./functions";
+
+$cardwidth: 81vw;
+$cardheight: 1.3235 * $cardwidth;
+
+$stndpadding: $cardwidth/30;
+$stndmargin: $cardwidth/15;
+$radius: $cardwidth/18;
+$picdia: ($cardwidth/2.5)- (2 * $stndmargin); /*veranderd  */
+$picborder: $picdia/20;
+
 body {
   margin: 0;
   font-family: Tahoma, sans-serif;
@@ -7,7 +17,7 @@ body {
   overflow-x: hidden;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 100px repeat(7, 480px);
+  grid-template-rows: 100px repeat(7, 1.1 * $cardheight);
   grid-template-areas:
     "header"
     "card1"
@@ -57,60 +67,59 @@ section[name="card7"] {
 }
 
 .card {
-  /*position: absolute;*/
   margin: auto;
-  border-radius: constants.$radius;
+  border-radius: $radius;
   box-shadow: 0 10px 15px grey;
-  width: constants.$cardwidth;
-  height: constants.$cardheight;
+  width: $cardwidth;
+  height: $cardheight;
   background-color: functions.color(light);
 
   &__text {
-    margin: constants.$stndmargin;
-    margin-bottom: constants.$picdia/2;
+    margin: $stndmargin;
+    margin-bottom: $picdia/2;
     line-height: 2rem;
-    height: 300px - constants.$picdia - constants.$stndpadding;
-    padding: 3 * constants.$stndpadding 0 constants.$stndpadding;
+    height: $cardheight - $picdia - $stndpadding;
+    padding: 3 * $stndpadding 0 $stndpadding;
     background-color: functions.color(light);
     font-size: medium;
     font-weight: 500;
   }
   &__image {
     position: relative;
-    top: -(constants.$picdia/2 + constants.$picborder);
-    left: (constants.$cardwidth/2) -
-      (constants.$picdia/2 + constants.$picborder);
-    height: constants.$picdia + 2 * constants.$picborder;
-    width: constants.$picdia + 2 * constants.$picborder;
+    top: -($picdia/2 + $picborder);
+    left: ($cardwidth/2) - ($picdia/2 + $picborder);
+    height: $picdia + 2 * $picborder;
+    width: $picdia + 2 * $picborder;
     background-color: functions.color(light);
     border-radius: 50%;
   }
   img {
     position: relative;
-    top: constants.$picborder;
-    width: constants.$picdia;
+    top: $picborder;
+    width: $picdia;
     border-radius: 50%;
   }
   &__person {
     margin: 0;
-    height: 150px;
+    top: (-1.75 * $picdia) + $stndpadding; /* veranderd */
+    height: 1.5 * $picdia;
     position: relative;
     background-color: functions.color(theme);
-    border-radius: 0 0 constants.$radius constants.$radius;
+    border-radius: 0 0 $radius $radius;
     color: functions.color(light);
     text-align: center;
   }
   &__name {
     position: relative;
-    top: -(constants.$picdia/2 + constants.$picborder);
-    padding-top: constants.$stndpadding;
+    top: -($picdia/2 + $picborder);
+    padding-top: $stndpadding;
     text-transform: uppercase;
     font-size: large;
   }
   &__site {
     position: relative;
-    top: -(constants.$picdia/2 + constants.$picborder);
-    padding: constants.$stndpadding;
+    top: -($picdia/2 + $picborder);
+    padding: $stndpadding;
     color: functions.color(darker);
     font-size: medium;
   }
@@ -118,11 +127,9 @@ section[name="card7"] {
 section.card::before {
   content: "";
   position: absolute;
-  top: 100;
-  right: 50;
-  width: constants.$cardwidth;
-  height: constants.$cardheight;
-  border-radius: constants.$radius;
+  width: $cardwidth;
+  height: $cardheight;
+  border-radius: $radius;
   z-index: 1;
   background: black;
   transform: scale(0, 0);
@@ -133,11 +140,9 @@ section.card::before {
 section.card:hover::before {
   content: "";
   position: absolute;
-  top: 100;
-  right: 50;
-  width: constants.$cardwidth;
-  height: constants.$cardheight;
-  border-radius: constants.$radius;
+  width: $cardwidth;
+  height: $cardheight;
+  border-radius: $radius;
   z-index: 1;
   background: black;
   transform: scale(1, 1);
@@ -145,16 +150,16 @@ section.card:hover::before {
 
 section.card .card__button {
   position: relative;
-  top: -30px;
-  left: 110px;
-  padding: constants.$stndpadding;
+  top: -($cardheight/2 + $picdia/2);
+  left: 0;
+  padding: $stndpadding;
   z-index: -1;
 }
 
 section.card:hover .card__button {
   position: relative;
-  top: -30px;
-  left: 110px;
+  top: -($cardheight/2 + $picdia/2);
+  left: 0;
   z-index: 2;
 }
 
@@ -225,14 +230,15 @@ section.card:hover .card__button {
 }
 
 .socials {
-  position: absolute;
+  position: fixed;
   right: -12.8rem;
   top: 20rem;
   z-index: 2;
   li {
     display: block;
     transition: transform 200ms ease 100ms;
-    &:hover {
+    &:hover,
+    &:focus {
       transform: translateX(-12rem);
     }
     a {
@@ -244,9 +250,11 @@ section.card:hover .card__button {
 }
 
 @media (min-width: 768px) {
+  $cardwidth: 45vw;
+  $cardheight: 1.3235 * $cardwidth;
   body {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 100px repeat(4, 480px);
+    grid-template-rows: 100px repeat(4, 1.1 * $cardheight);
     grid-template-areas:
       "header header"
       "card1 card2"
@@ -254,16 +262,222 @@ section.card:hover .card__button {
       "card5 card6"
       "card7 .";
   }
+
+  $stndpadding: $cardwidth/30;
+  $stndmargin: $cardwidth/15;
+  $radius: $cardwidth/18; /*18px*/
+  $picdia: ($cardwidth/2.5)- (2 * $stndmargin); /*100px  */
+  $picborder: $picdia/20; /*5px */
+
+  .card {
+    /*position: absolute;*/
+    margin: auto;
+    border-radius: $radius;
+    box-shadow: 0 10px 15px grey;
+    width: $cardwidth;
+    height: $cardheight;
+    background-color: functions.color(light);
+
+    &__text {
+      margin: $stndmargin;
+      margin-bottom: $picdia/2;
+      line-height: 2rem;
+      height: $cardheight - $picdia - $stndpadding;
+      padding: 3 * $stndpadding 0 $stndpadding;
+      background-color: functions.color(light);
+      font-size: medium;
+      font-weight: 500;
+    }
+    &__image {
+      position: relative;
+      top: -($picdia/2 + $picborder);
+      left: ($cardwidth/2) - ($picdia/2 + $picborder);
+      height: $picdia + 2 * $picborder;
+      width: $picdia + 2 * $picborder;
+      background-color: functions.color(light);
+      border-radius: 50%;
+    }
+    img {
+      position: relative;
+      top: $picborder;
+      width: $picdia;
+      border-radius: 50%;
+    }
+    &__person {
+      margin: 0;
+      top: (-1.75 * $picdia) + $stndpadding;
+      height: 1.5 * $picdia;
+      position: relative;
+      background-color: functions.color(theme);
+      border-radius: 0 0 $radius $radius;
+      color: functions.color(light);
+      text-align: center;
+    }
+    &__name {
+      position: relative;
+      top: -($picdia/2 + $picborder);
+      padding-top: $stndpadding;
+      text-transform: uppercase;
+      font-size: large;
+    }
+    &__site {
+      position: relative;
+      top: -($picdia/2 + $picborder);
+      padding: $stndpadding;
+      color: functions.color(darker);
+      font-size: medium;
+    }
+  }
+  section.card::before {
+    content: "";
+    position: absolute;
+    width: $cardwidth;
+    height: $cardheight;
+    border-radius: $radius;
+    z-index: 1;
+    background: black;
+    transform: scale(0, 0);
+
+    transition: transform 100ms ease-out;
+  }
+
+  section.card:hover::before {
+    content: "";
+    position: absolute;
+    width: $cardwidth;
+    height: $cardheight;
+    border-radius: $radius;
+    z-index: 1;
+    background: black;
+    transform: scale(1, 1);
+  }
+
+  section.card .card__button {
+    position: relative;
+    top: -($cardheight/2 + $picdia/2);
+    padding: $stndpadding;
+    z-index: -1;
+  }
+
+  section.card:hover .card__button {
+    position: relative;
+    top: -($cardheight/2 + $picdia/2);
+    z-index: 2;
+  }
 }
 
 @media (min-width: 1024px) {
+  $cardwidth: 30vw; /* cardwidth de standaard maken*/
+  $cardheight: 1.3235 * $cardwidth; /* ongeveer 450px*/
   body {
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 100px repeat(3, 480px);
+    grid-template-rows: 100px repeat(3, 1.1 * $cardheight);
     grid-template-areas:
       "header header header"
       "card1 card2 card3"
       "card4 card5 card6"
       "card7 . .";
+  }
+
+  $stndpadding: $cardwidth/30; /* 10px */
+  $stndmargin: $cardwidth/15; /* 20px */
+  $radius: $cardwidth/18; /*18px*/
+  $picdia: ($cardwidth/2.5)- (2 * $stndmargin); /*100px  */
+  $picborder: $picdia/20; /*5px */
+
+  .card {
+    /*position: absolute;*/
+    margin: auto;
+    border-radius: $radius;
+    box-shadow: 0 10px 15px grey;
+    width: $cardwidth;
+    height: $cardheight;
+    background-color: functions.color(light);
+
+    &__text {
+      margin: $stndmargin;
+      margin-bottom: $picdia/2;
+      line-height: 2rem;
+      height: $cardheight - $picdia - $stndpadding;
+      padding: 3 * $stndpadding 0 $stndpadding;
+      background-color: functions.color(light);
+      font-size: medium;
+      font-weight: 500;
+    }
+    &__image {
+      position: relative;
+      top: -($picdia/2 + $picborder);
+      left: ($cardwidth/2) - ($picdia/2 + $picborder);
+      height: $picdia + 2 * $picborder;
+      width: $picdia + 2 * $picborder;
+      background-color: functions.color(light);
+      border-radius: 50%;
+    }
+    img {
+      position: relative;
+      top: $picborder;
+      width: $picdia;
+      border-radius: 50%;
+    }
+    &__person {
+      margin: 0;
+      top: (-1.75 * $picdia) + $stndpadding;
+      height: 1.5 * $picdia;
+      position: relative;
+      background-color: functions.color(theme);
+      border-radius: 0 0 $radius $radius;
+      color: functions.color(light);
+      text-align: center;
+    }
+    &__name {
+      position: relative;
+      top: -($picdia/2 + $picborder);
+      padding-top: $stndpadding;
+      text-transform: uppercase;
+      font-size: large;
+    }
+    &__site {
+      position: relative;
+      top: -($picdia/2 + $picborder);
+      padding: $stndpadding;
+      color: functions.color(darker);
+      font-size: medium;
+    }
+  }
+  section.card::before {
+    content: "";
+    position: absolute;
+    width: $cardwidth;
+    height: $cardheight;
+    border-radius: $radius;
+    z-index: 1;
+    background: black;
+    transform: scale(0, 0);
+
+    transition: transform 100ms ease-out;
+  }
+
+  section.card:hover::before {
+    content: "";
+    position: absolute;
+    width: $cardwidth;
+    height: $cardheight;
+    border-radius: $radius;
+    z-index: 1;
+    background: black;
+    transform: scale(1, 1);
+  }
+
+  section.card .card__button {
+    position: relative;
+    top: -($cardheight/2 + $picdia/2);
+    padding: $stndpadding;
+    z-index: -1;
+  }
+
+  section.card:hover .card__button {
+    position: relative;
+    top: -($cardheight/2 + $picdia/2);
+    z-index: 2;
   }
 }
