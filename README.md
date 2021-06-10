@@ -14,3 +14,7 @@ Uit de documentatie bleek dat "DartJS" het nieuwere "dart Sass" gebruikt in tege
 Uiteindelijk bleek de "live sass compiler" van Glenn Marks ook "Dart Sass" te gebruiken, daarom werkt die ook correct.
 
 M.v.g. Detlef Dumpelmann.
+
+```javascript
+  const endOfStory;
+```
