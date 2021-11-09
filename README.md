@@ -1,6 +1,6 @@
 # Detlef_Dumpelmann-Level10Eindopdracht
 
-De website is[hier](https://jovial-yalow-b5c2dc.netlify.app/) te vinden.
+De website is [hier](https://jovial-yalow-b5c2dc.netlify.app/) te vinden.
 
 Ik heb bij dit project de "Live Sass Compiler" extensie verruild voor "DartJS".
 
